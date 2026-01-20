@@ -1,577 +1,146 @@
-// ============ TYPEWRITER EFFECT ============
+// Typewriter Effect
 const phrases = [
     'Ingeniero en Sistemas',
-    'Desarrollador de Software',
+    'Desarrollador Full Stack',
     'Docente de Programación',
-    'Especialista Full Stack',
+    'Especialista en Python',
     'Formador de Talentos'
 ];
 
 let phraseIndex = 0;
 let charIndex = 0;
-let currentPhrase = '';
 let isDeleting = false;
 
 function typeWriter() {
-    const fullPhrase = phrases[phraseIndex];
+    const current = phrases[phraseIndex];
+    const typewriterEl = document.getElementById('typewriter');
     
     if (isDeleting) {
-        currentPhrase = fullPhrase.substring(0, charIndex - 1);
+        typewriterEl.textContent = current.substring(0, charIndex - 1);
         charIndex--;
     } else {
-        currentPhrase = fullPhrase.substring(0, charIndex + 1);
+        typewriterEl.textContent = current.substring(0, charIndex + 1);
         charIndex++;
     }
 
-    document.getElementById('typewriter').innerHTML = currentPhrase;
+    let speed = isDeleting ? 50 : 150;
 
-    let typeSpeed = 150;
-    if (isDeleting) typeSpeed /= 2;
-
-    if (!isDeleting && charIndex === fullPhrase.length) {
-        typeSpeed = 2000;
+    if (!isDeleting && charIndex === current.length) {
+        speed = 2000;
         isDeleting = true;
     } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
         phraseIndex = (phraseIndex + 1) % phrases.length;
-        typeSpeed = 500;
+        speed = 500;
     }
 
-    setTimeout(typeWriter, typeSpeed);
+    setTimeout(typeWriter, speed);
 }
 
-// ============ PROJECTS DATA & MANAGEMENT ============
-let projects = [
+// Projects Data
+const projects = [
     {
-        title: "Sistema de Gestión Académica",
+        title: "Sistema de Carnetización",
         category: "web",
         tech: "PHP, MySQL, Bootstrap, JavaScript",
-        description: "Sistema completo para la gestión de estudiantes, docentes y cursos en instituciones educativas. Incluye módulos de inscripciones, calificaciones y reportes.",
-        url: "",
-        github: "https://github.com/maysalazar16/sistema-academico"
+        description: "Sistema completo para la gestión de carnets institucionales con captura de fotos, códigos QR, impresión automatizada y control de acceso en tiempo real.",
+        github: "https://github.com/maysalazar16"
     },
     {
-        title: "App de Control de Inventario",
-        category: "web", 
-        tech: "React, Node.js, MongoDB, Express",
-        description: "Aplicación web para el control de inventarios en tiempo real con alertas automáticas, códigos de barras y reportes detallados.",
-        url: "",
-        github: "https://github.com/maysalazar16/inventario-app"
+        title: "Cajero Automático",
+        category: "python",
+        tech: "Python, Tkinter, SQLite, PIL",
+        description: "Simulador de cajero automático con interfaz gráfica completa. Incluye retiros, depósitos, consultas de saldo, transferencias y generación de reportes.",
+        github: "https://github.com/maysalazar16"
     },
     {
-        title: "API REST para E-learning",
-        category: "api",
-        tech: "Python, Django, PostgreSQL, JWT",
-        description: "API robusta para plataforma de aprendizaje en línea con autenticación, gestión de cursos, progreso de estudiantes y certificaciones.",
-        url: "",
-        github: "https://github.com/maysalazar16/elearning-api"
+        title: "Sistema de Inventario Inteligente",
+        category: "python",
+        tech: "Python, Django, PostgreSQL, Pandas",
+        description: "Plataforma web para gestión de inventarios con análisis predictivo, alertas automáticas de stock bajo y generación de reportes estadísticos avanzados.",
+        github: "https://github.com/maysalazar16"
     },
     {
-        title: "Dashboard Analítico SENA",
+        title: "Scraper de Datos Web",
+        category: "python",
+        tech: "Python, BeautifulSoup, Selenium, Pandas",
+        description: "Herramienta automatizada para extracción de datos de sitios web. Incluye limpieza de datos, exportación a CSV/Excel y programación de tareas automáticas.",
+        github: "https://github.com/maysalazar16"
+    },
+    {
+        title: "Dashboard Analytics",
+        category: "javascript",
+        tech: "React, D3.js, Node.js, MongoDB",
+        description: "Dashboard interactivo para visualización de datos en tiempo real con gráficos dinámicos, filtros avanzados y exportación de reportes personalizados.",
+        github: "https://github.com/maysalazar16"
+    },
+    {
+        title: "API de Gestión Académica",
+        category: "python",
+        tech: "FastAPI, PostgreSQL, JWT, Docker",
+        description: "API RESTful robusta para gestión académica con autenticación segura, gestión de estudiantes, cursos, calificaciones y generación de certificados.",
+        github: "https://github.com/maysalazar16"
+    },
+    {
+        title: "Chat en Tiempo Real",
+        category: "javascript",
+        tech: "Node.js, Socket.io, Express, MongoDB",
+        description: "Aplicación de mensajería instantánea con salas de chat, notificaciones push, compartir archivos y indicadores de escritura en tiempo real.",
+        github: "https://github.com/maysalazar16"
+    },
+    {
+        title: "Sistema de Ventas POS",
         category: "web",
-        tech: "Vue.js, Chart.js, Laravel, MySQL",
-        description: "Dashboard interactivo para visualizar métricas académicas y estadísticas de rendimiento de estudiantes del SENA Regional Valle.",
-        url: "",
-        github: "https://github.com/maysalazar16/sena-dashboard"
-    },
-    {
-        title: "Sistema de Biblioteca Digital",
-        category: "web",
-        tech: "Angular, Spring Boot, PostgreSQL",
-        description: "Plataforma digital para gestión de biblioteca con catálogo online, reservas, multas y sistema de recomendaciones basado en IA.",
-        url: "",
-        github: "https://github.com/maysalazar16/biblioteca-digital"
-    },
-    {
-        title: "App Móvil de Asistencia",
-        category: "mobile",
-        tech: "React Native, Firebase, Expo",
-        description: "Aplicación móvil para control de asistencia con reconocimiento facial, geolocalización y sincronización en tiempo real.",
-        url: "",
-        github: "https://github.com/maysalazar16/asistencia-mobile"
-    },
-    {
-        title: "Chatbot Educativo IA",
-        category: "api",
-        tech: "Python, FastAPI, OpenAI, Redis",
-        description: "Chatbot inteligente para resolver dudas académicas de estudiantes, integrado con GPT y base de conocimientos personalizada.",
-        url: "",
-        github: "https://github.com/maysalazar16/chatbot-educativo"
-    },
-    {
-        title: "Plataforma de Certificaciones",
-        category: "web",
-        tech: "Next.js, Strapi, PostgreSQL, AWS",
-        description: "Sistema para emisión y verificación de certificados digitales con blockchain, QR codes y validación online.",
-        url: "",
-        github: "https://github.com/maysalazar16/certificaciones-digitales"
-    },
-    {
-        title: "Sistema de Punto de Venta",
-        category: "desktop",
-        tech: "Electron, React, SQLite, Thermal Printer",
-        description: "Aplicación de escritorio para pequeños comercios con gestión de productos, ventas, clientes e impresión de facturas.",
-        url: "",
-        github: "https://github.com/maysalazar16/pos-system"
-    },
-    {
-        title: "Marketplace de Servicios",
-        category: "web",
-        tech: "MERN Stack, Stripe, Socket.io, AWS S3",
-        description: "Plataforma web tipo freelancer para conectar profesionales con clientes, sistema de pagos y chat en tiempo real.",
-        url: "",
-        github: "https://github.com/maysalazar16/marketplace-servicios"
-    },
-    {
-        title: "Gestor de Proyectos Agile",
-        category: "web",
-        tech: "Vue.js, Express, MongoDB, Socket.io",
-        description: "Herramienta colaborativa para gestión de proyectos con metodologías ágiles, tableros kanban y seguimiento de tiempo.",
-        url: "",
-        github: "https://github.com/maysalazar16/agile-project-manager"
-    },
-    {
-        title: "API de Geolocalización",
-        category: "api",
-        tech: "Node.js, Express, MongoDB, Google Maps",
-        description: "API para servicios de geolocalización, cálculo de rutas, puntos de interés y notificaciones por proximidad.",
-        url: "",
-        github: "https://github.com/maysalazar16/geolocalizacion-api"
-    },
-    {
-        title: "Sistema de Reservas Online",
-        category: "web",
-        tech: "React, Ruby on Rails, PostgreSQL, Redis",
-        description: "Plataforma para reservas de espacios y recursos con calendario interactivo, notificaciones y pagos integrados.",
-        url: "",
-        github: "https://github.com/maysalazar16/reservas-online"
-    },
-    {
-        title: "Monitor de Redes IoT",
-        category: "desktop",
-        tech: "Python, Tkinter, MQTT, InfluxDB",
-        description: "Aplicación de monitoreo para dispositivos IoT con dashboards en tiempo real, alertas y análisis histórico.",
-        url: "",
-        github: "https://github.com/maysalazar16/iot-monitor"
-    },
-    {
-        title: "Portfolio Generator CLI",
-        category: "other",
-        tech: "Node.js, Commander.js, Handlebars, Git",
-        description: "Herramienta de línea de comandos para generar portfolios web automáticamente desde datos de GitHub y CV.",
-        url: "",
-        github: "https://github.com/maysalazar16/portfolio-generator"
+        tech: "Vue.js, Laravel, MySQL, Redis",
+        description: "Sistema punto de venta completo con gestión de productos, clientes, ventas, facturación electrónica e integración con impresoras térmicas.",
+        github: "https://github.com/maysalazar16"
     }
 ];
 
-function getCategoryColor(category) {
-    const colors = {
-        'web': 'var(--primary-color)',      // Azul - Desarrollo Web
-        'mobile': 'var(--accent-color)',    // Azul claro - Apps Móviles
-        'desktop': '#10b981',               // Verde - Apps Desktop
-        'api': '#f59e0b',                  // Amarillo - APIs/Backend
-        'other': '#6b7280'                 // Gris - Otros
-    };
-    return colors[category] || colors.other;
-}
-
-function getCategoryLabel(category) {
-    const labels = {
-        'web': 'Desarrollo Web',
-        'mobile': 'App Móvil',
-        'desktop': 'Aplicación Desktop', 
-        'api': 'API/Backend',
-        'other': 'Herramientas'
-    };
-    return labels[category] || 'Otro';
-}
-
 function renderProjects() {
     const container = document.getElementById('projectsGrid');
-    if (!container) return;
-    
     container.innerHTML = '';
 
     projects.forEach((project, index) => {
-        const projectCard = document.createElement('div');
-        projectCard.className = 'project-card';
-        projectCard.style.animation = `fadeInUp 0.6s ease forwards ${index * 0.1}s`;
+        const categoryClass = project.category === 'python' ? 'category-python' : 
+                             project.category === 'javascript' ? 'category-javascript' : 'category-web';
         
-        projectCard.innerHTML = `
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.style.animation = `fadeIn 0.6s ease forwards ${index * 0.1}s`;
+        card.style.opacity = '0';
+        
+        card.innerHTML = `
             <div class="project-header">
-                <div class="project-category" style="background-color: ${getCategoryColor(project.category)}">
-                    ${getCategoryLabel(project.category)}
-                </div>
+                <div class="project-category ${categoryClass}">${project.category.toUpperCase()}</div>
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-tech">${project.tech}</p>
             </div>
             <div class="project-body">
                 <p class="project-description">${project.description}</p>
-                <div class="project-actions">
-                    ${project.url ? `<a href="${project.url}" class="btn btn-primary" target="_blank">Ver Demo</a>` : ''}
-                    ${project.github ? `<a href="${project.github}" class="btn btn-secondary" target="_blank">Ver Código</a>` : ''}
-                    <button class="btn btn-secondary" onclick="removeProject(${index})" style="background-color: #ef4444; color: white; border-color: #ef4444;">
-                        Eliminar
-                    </button>
-                </div>
             </div>
         `;
         
-        container.appendChild(projectCard);
+        container.appendChild(card);
     });
 }
 
-function addProject() {
-    const name = document.getElementById('projectName').value.trim();
-    const category = document.getElementById('projectCategory').value;
-    const tech = document.getElementById('projectTech').value.trim();
-    const description = document.getElementById('projectDescription').value.trim();
-    const url = document.getElementById('projectUrl').value.trim();
-    const github = document.getElementById('projectGithub').value.trim();
-
-    if (!name || !category || !tech || !description) {
-        showNotification('Por favor completa todos los campos obligatorios.', 'error');
-        return;
-    }
-
-    const newProject = {
-        title: name,
-        category: category,
-        tech: tech,
-        description: description,
-        url: url,
-        github: github
-    };
-
-    projects.push(newProject);
-    renderProjects();
-    
-    // Clear form
-    document.getElementById('projectForm').reset();
-    
-    showNotification('¡Proyecto agregado exitosamente!', 'success');
-    
-    // Scroll to projects section
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-}
-
-function removeProject(index) {
-    if (confirm('¿Estás seguro de que quieres eliminar este proyecto?')) {
-        projects.splice(index, 1);
-        renderProjects();
-        showNotification('Proyecto eliminado correctamente.', 'success');
-    }
-}
-
-// ============ FILE UPLOAD FUNCTIONALITY ============
-let uploadedFiles = [];
-
-function initializeFileUpload() {
-    const uploadArea = document.getElementById('uploadArea');
-    const fileInput = document.getElementById('fileInput');
-
-    if (!uploadArea || !fileInput) return;
-
-    // Click to select files
-    uploadArea.addEventListener('click', () => {
-        fileInput.click();
-    });
-
-    // File input change
-    fileInput.addEventListener('change', handleFileSelect);
-
-    // Drag and drop events
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, preventDefaults, false);
-        document.body.addEventListener(eventName, preventDefaults, false);
-    });
-
-    ['dragenter', 'dragover'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, highlight, false);
-    });
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        uploadArea.addEventListener(eventName, unhighlight, false);
-    });
-
-    uploadArea.addEventListener('drop', handleDrop, false);
-}
-
-function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}
-
-function highlight(e) {
-    document.getElementById('uploadArea').classList.add('drag-over');
-}
-
-function unhighlight(e) {
-    document.getElementById('uploadArea').classList.remove('drag-over');
-}
-
-function handleFileSelect(e) {
-    const files = e.target.files;
-    handleFiles(files);
-}
-
-function handleDrop(e) {
-    const dt = e.dataTransfer;
-    const files = dt.files;
-    handleFiles(files);
-}
-
-function handleFiles(files) {
-    if (files.length === 0) return;
-    
-    const fileList = Array.from(files);
-    const validFiles = fileList.filter(file => {
-        const validTypes = [
-            'image/jpeg', 'image/png', 'image/gif', 'image/webp',
-            'application/pdf', 'text/plain', 'application/msword',
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-            'text/html', 'text/css', 'text/javascript', 'text/python'
-        ];
-        return validTypes.includes(file.type) || 
-               file.name.match(/\.(js|html|css|py|txt|md)$/);
-    });
-
-    if (validFiles.length === 0) {
-        showNotification('Por favor selecciona archivos válidos.', 'error');
-        return;
-    }
-
-    uploadedFiles = [...uploadedFiles, ...validFiles];
-    updateUploadDisplay(validFiles);
-    
-    const fileNames = validFiles.map(file => file.name).join(', ');
-    showNotification(`${validFiles.length} archivo(s) seleccionado(s): ${fileNames}`, 'success');
-}
-
-function updateUploadDisplay(files) {
-    const uploadArea = document.getElementById('uploadArea');
-    const fileCount = uploadedFiles.length;
-    
-    uploadArea.innerHTML = `
-        <div class="upload-icon">📁</div>
-        <h3>Archivos seleccionados: ${fileCount}</h3>
-        <p>${files.map(f => f.name).join(', ')}</p>
-        <small style="color: var(--text-muted);">Haz clic para seleccionar más archivos</small>
-    `;
-}
-
-// ============ FORM HANDLING ============
-function initializeForms() {
-    // Project form
-    const projectForm = document.getElementById('projectForm');
-    if (projectForm) {
-        projectForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            addProject();
-        });
-    }
-
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleContactSubmit();
-        });
-    }
-}
-
-function handleContactSubmit() {
-    const name = document.getElementById('contactName').value.trim();
-    const email = document.getElementById('contactEmail').value.trim();
-    const subject = document.getElementById('contactSubject').value.trim();
-    const message = document.getElementById('contactMessage').value.trim();
-
-    if (!name || !email || !subject || !message) {
-        showNotification('Por favor completa todos los campos.', 'error');
-        return;
-    }
-
-    if (!isValidEmail(email)) {
-        showNotification('Por favor ingresa un email válido.', 'error');
-        return;
-    }
-
-    // Crear el enlace de mailto con todos los datos
-    const emailSubject = encodeURIComponent(`${subject} - Contacto desde Portfolio`);
-    const emailBody = encodeURIComponent(
-        `Hola Mairon,\n\n` +
-        `Mi nombre es ${name} y me gustaría contactarte.\n\n` +
-        `Mensaje:\n${message}\n\n` +
-        `Mis datos de contacto:\n` +
-        `Email: ${email}\n\n` +
-        `Enviado desde tu portfolio web.`
-    );
-    
-    const mailtoLink = `mailto:maironsalazar16@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-    
-    // Abrir el cliente de correo
-    window.open(mailtoLink, '_blank');
-    
-    // Mostrar confirmación
-    showNotification('¡Se ha abierto tu cliente de correo con el mensaje pre-llenado!', 'success');
-    
-    // Limpiar formulario después de un momento
-    setTimeout(() => {
-        document.getElementById('contactForm').reset();
-    }, 2000);
-}
-
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// ============ SMOOTH SCROLLING ============
-function initializeSmoothScrolling() {
+// Smooth scrolling
+function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerHeight = 80;
-                const targetPosition = target.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });
 }
 
-// ============ MOBILE NAVIGATION ============
-function initializeMobileNav() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    if (!hamburger || !navMenu) return;
-
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close menu when clicking on a link
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-}
-
-// ============ NOTIFICATIONS ============
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotifications = document.querySelectorAll('.notification');
-    existingNotifications.forEach(notification => notification.remove());
-
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <span>${message}</span>
-        <button onclick="this.parentElement.remove()">&times;</button>
-    `;
-
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        z-index: 10000;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        max-width: 400px;
-        animation: slideInRight 0.3s ease;
-    `;
-
-    // Add animation keyframes if not already added
-    if (!document.getElementById('notification-styles')) {
-        const style = document.createElement('style');
-        style.id = 'notification-styles';
-        style.textContent = `
-            @keyframes slideInRight {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            .notification button {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 1.2rem;
-                cursor: pointer;
-                padding: 0;
-                width: 20px;
-                height: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    document.body.appendChild(notification);
-
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.remove();
-        }
-    }, 5000);
-}
-
-// ============ SCROLL ANIMATIONS ============
-function initializeScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements that should animate on scroll
-    document.querySelectorAll('.timeline-item, .stat-item, .skill-category, .contact-card').forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// ============ INITIALIZATION ============
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     typeWriter();
     renderProjects();
-    initializeFileUpload();
-    initializeForms();
-    initializeSmoothScrolling();
-    initializeMobileNav();
-    initializeScrollAnimations();
-
-    // Add loading animation to page
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-
-    console.log('✅ Portfolio de Mairon Salazar cargado correctamente');
+    initSmoothScroll();
 });
