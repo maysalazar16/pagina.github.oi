@@ -1,9 +1,9 @@
 // Companies / organizations worked with
 // NOTE: edit this list directly to add/remove organizations for the carousel.
 const companies = [
-    { name: 'S&T Soluciones Tecnológicas', role: 'Software Developer' },
-    { name: 'SENA', role: 'Instructor de Programación' },
-    { name: 'Fundación FEDI', role: 'Desarrollador Full Stack — FEDI RISE' }
+    { name: 'S&T Soluciones Tecnológicas', role: 'Software Developer', logo: 'images/logos/st-soluciones.png', initials: 'S&T' },
+    { name: 'SENA', role: 'Instructor de Programación', logo: 'images/logos/sena.png', initials: 'SENA' },
+    { name: 'Fundación FEDI', role: 'Desarrollador Full Stack — FEDI RISE', logo: 'images/logos/fundacion-fedi.png', initials: 'FEDI' }
 ];
 
 function renderCompanies() {
@@ -13,6 +13,10 @@ function renderCompanies() {
     const doubled = [...companies, ...companies];
     track.innerHTML = doubled.map(c => `
         <div class="company-card">
+            <div class="company-logo">
+                <img src="${c.logo}" alt="${c.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span class="company-logo-fallback">${c.initials}</span>
+            </div>
             <span class="company-name">${c.name}</span>
             <span class="company-role">${c.role}</span>
         </div>
