@@ -3,7 +3,7 @@ const phrases = [
     'Ingeniero en Sistemas',
     'Desarrollador Full Stack',
     'Docente de Programación',
-    'Especialista en Python',
+    'Python · TypeScript · Go',
     'Formador de Talentos'
 ];
 
@@ -14,7 +14,7 @@ let isDeleting = false;
 function typeWriter() {
     const current = phrases[phraseIndex];
     const typewriterEl = document.getElementById('typewriter');
-    
+
     if (isDeleting) {
         typewriterEl.textContent = current.substring(0, charIndex - 1);
         charIndex--;
@@ -37,82 +37,111 @@ function typeWriter() {
     setTimeout(typeWriter, speed);
 }
 
-// Projects Data
-const projects = [
+// Companies / organizations worked with
+// NOTE: edit this list directly to add/remove organizations for the carousel.
+const companies = [
+    { name: 'S&T Soluciones Tecnológicas', role: 'Software Developer' },
+    { name: 'SENA', role: 'Instructor de Programación' },
+    { name: 'Fundación FEDI', role: 'Desarrollador Full Stack — FEDI RISE' }
+];
+
+function renderCompanies() {
+    const track = document.getElementById('carouselTrack');
+    if (!track) return;
+    // duplicate the list so the CSS animation can loop seamlessly
+    const doubled = [...companies, ...companies];
+    track.innerHTML = doubled.map(c => `
+        <div class="company-card">
+            <span class="company-name">${c.name}</span>
+            <span class="company-role">${c.role}</span>
+        </div>
+    `).join('');
+}
+
+// Featured case-study projects (private/institutional work, no public repo)
+const featuredProjects = [
     {
-        title: "Sistema de Carnetización",
-        category: "web",
-        tech: "PHP, MySQL, Bootstrap, JavaScript",
-        description: "Sistema completo para la gestión de carnets institucionales con captura de fotos, códigos QR, impresión automatizada y control de acceso en tiempo real.",
-        github: "https://github.com/maysalazar16"
+        title: 'FEDI RISE / FEDI CLÍNICA',
+        category: 'web',
+        tech: 'Django, PostgreSQL, React, Vite, JWT, Docker, AWS S3',
+        description: 'Plataforma clínica multidisciplinaria para gestión de terapias (Fonoaudiología, Fisioterapia, Terapia Ocupacional, Psicología, Terapia Acuática). Desarrollador único del stack completo: backend Django/PostgreSQL desplegado en Railway, frontend React/Vite en Vercel, generación de reportes e integración con IA.',
+        status: 'Proyecto privado · Cliente',
+        links: []
     },
     {
-        title: "Cajero Automático",
-        category: "python",
-        tech: "Python, Tkinter, SQLite, PIL",
-        description: "Simulador de cajero automático con interfaz gráfica completa. Incluye retiros, depósitos, consultas de saldo, transferencias y generación de reportes.",
-        github: "https://github.com/maysalazar16"
+        title: 'Sistema de Carnetización SENA',
+        category: 'python',
+        tech: 'Flask, SQLite, Pillow, Jinja2',
+        description: 'Sistema institucional para gestión de carnets de aprendices: flujo de captura de foto en 4 pasos, carga masiva de aprendices desde Excel y generación automatizada de carnets.',
+        status: 'Proyecto institucional',
+        links: []
     },
     {
-        title: "Sistema de Inventario Inteligente",
-        category: "python",
-        tech: "Python, Django, PostgreSQL, Pandas",
-        description: "Plataforma web para gestión de inventarios con análisis predictivo, alertas automáticas de stock bajo y generación de reportes estadísticos avanzados.",
-        github: "https://github.com/maysalazar16"
-    },
-    {
-        title: "Scraper de Datos Web",
-        category: "python",
-        tech: "Python, BeautifulSoup, Selenium, Pandas",
-        description: "Herramienta automatizada para extracción de datos de sitios web. Incluye limpieza de datos, exportación a CSV/Excel y programación de tareas automáticas.",
-        github: "https://github.com/maysalazar16"
-    },
-    {
-        title: "Dashboard Analytics",
-        category: "javascript",
-        tech: "React, D3.js, Node.js, MongoDB",
-        description: "Dashboard interactivo para visualización de datos en tiempo real con gráficos dinámicos, filtros avanzados y exportación de reportes personalizados.",
-        github: "https://github.com/maysalazar16"
-    },
-    {
-        title: "API de Gestión Académica",
-        category: "python",
-        tech: "FastAPI, PostgreSQL, JWT, Docker",
-        description: "API RESTful robusta para gestión académica con autenticación segura, gestión de estudiantes, cursos, calificaciones y generación de certificados.",
-        github: "https://github.com/maysalazar16"
-    },
-    {
-        title: "Chat en Tiempo Real",
-        category: "javascript",
-        tech: "Node.js, Socket.io, Express, MongoDB",
-        description: "Aplicación de mensajería instantánea con salas de chat, notificaciones push, compartir archivos y indicadores de escritura en tiempo real.",
-        github: "https://github.com/maysalazar16"
-    },
-    {
-        title: "Sistema de Ventas POS",
-        category: "web",
-        tech: "Vue.js, Laravel, MySQL, Redis",
-        description: "Sistema punto de venta completo con gestión de productos, clientes, ventas, facturación electrónica e integración con impresoras térmicas.",
-        github: "https://github.com/maysalazar16"
+        title: 'Scraper de Microsoft Forms',
+        category: 'python',
+        tech: 'Python, Playwright',
+        description: 'Herramienta de automatización que extrae respuestas de Microsoft Forms y genera salidas estructuradas en JSON y PDF.',
+        status: 'Proyecto propio',
+        links: []
     }
 ];
 
-function renderProjects() {
-    const container = document.getElementById('projectsGrid');
+// Real public repositories on GitHub (github.com/maysalazar16)
+const publicProjects = [
+    {
+        title: 'Página Soluciones Tecnológicas',
+        category: 'python',
+        tech: 'Python',
+        description: 'Proyecto de página web para Soluciones Tecnológicas.',
+        repo: 'soluciones_tecnologicas'
+    },
+    {
+        title: 'Página de Ventas',
+        category: 'web',
+        tech: 'HTML, CSS',
+        description: 'Landing page de ventas construida con HTML y CSS puro.',
+        repo: 'pagina-de-ventas'
+    },
+    {
+        title: 'Juegos en Python',
+        category: 'python',
+        tech: 'Python',
+        description: 'Colección de juegos desarrollados en Python.',
+        repo: 'juegos-PYTHON'
+    },
+    {
+        title: 'Descargador de Música',
+        category: 'python',
+        tech: 'Python',
+        description: 'Utilidad en Python para descarga de música.',
+        repo: 'descargar-m-sica-PYTHON-'
+    }
+];
+
+function categoryLabel(category) {
+    return category === 'python' ? 'category-python' :
+           category === 'javascript' ? 'category-javascript' :
+           category === 'go' ? 'category-go' :
+           category === 'typescript' ? 'category-typescript' : 'category-web';
+}
+
+function renderFeatured() {
+    const container = document.getElementById('featuredGrid');
+    if (!container) return;
     container.innerHTML = '';
 
-    projects.forEach((project, index) => {
-        const categoryClass = project.category === 'python' ? 'category-python' : 
-                             project.category === 'javascript' ? 'category-javascript' : 'category-web';
-        
+    featuredProjects.forEach((project, index) => {
         const card = document.createElement('div');
         card.className = 'project-card';
         card.style.animation = `fadeIn 0.6s ease forwards ${index * 0.1}s`;
         card.style.opacity = '0';
-        
+
         card.innerHTML = `
             <div class="project-header">
-                <div class="project-category ${categoryClass}">${project.category.toUpperCase()}</div>
+                <div class="project-badges">
+                    <div class="project-category ${categoryLabel(project.category)}">${project.category.toUpperCase()}</div>
+                    <div class="project-status">${project.status}</div>
+                </div>
                 <h3 class="project-title">${project.title}</h3>
                 <p class="project-tech">${project.tech}</p>
             </div>
@@ -120,8 +149,60 @@ function renderProjects() {
                 <p class="project-description">${project.description}</p>
             </div>
         `;
-        
+
         container.appendChild(card);
+    });
+}
+
+function renderProjects() {
+    const container = document.getElementById('projectsGrid');
+    if (!container) return;
+    container.innerHTML = '';
+
+    publicProjects.forEach((project, index) => {
+        const card = document.createElement('div');
+        card.className = 'project-card';
+        card.style.animation = `fadeIn 0.6s ease forwards ${index * 0.1}s`;
+        card.style.opacity = '0';
+
+        card.innerHTML = `
+            <div class="project-header">
+                <div class="project-badges">
+                    <div class="project-category ${categoryLabel(project.category)}">${project.category.toUpperCase()}</div>
+                </div>
+                <h3 class="project-title">${project.title}</h3>
+                <p class="project-tech">${project.tech}</p>
+            </div>
+            <div class="project-body">
+                <p class="project-description">${project.description}</p>
+                <div class="project-links">
+                    <a href="https://github.com/maysalazar16/${project.repo}" target="_blank">Ver código →</a>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+// Mobile nav toggle
+function initMobileNav() {
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (!toggle || !links) return;
+
+    toggle.addEventListener('click', () => {
+        const isOpen = links.classList.toggle('open');
+        toggle.classList.toggle('open', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    links.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
     });
 }
 
@@ -138,9 +219,18 @@ function initSmoothScroll() {
     });
 }
 
+function setFooterYear() {
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     typeWriter();
+    renderCompanies();
+    renderFeatured();
     renderProjects();
+    initMobileNav();
     initSmoothScroll();
+    setFooterYear();
 });

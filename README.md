@@ -1,46 +1,38 @@
-💼 Portafolio Personal - Mairon Salazar
-👨‍💻 Sobre Mí
-Soy Mairon Salazar, Ingeniero en Sistemas con más de 3 años de experiencia en desarrollo de software. Actualmente me desempeño como Docente de Programación y Sistemas en el SENA Regional Valle, 
-donde tengo el privilegio de formar a las nuevas generaciones de desarrolladores y compartir mi pasión por la tecnología.
-🚀 Características del Proyecto
-Este portafolio web fue desarrollado con tecnologías modernas y presenta un diseño profesional, limpio y totalmente responsive.
-✨ Funcionalidades Principales
+## 💼 Portafolio Personal - Mairon Salazar
 
-🎯 Diseño Responsivo: Adaptado para dispositivos móviles, tablets y desktop
-💼 Gestión de Proyectos: Sistema dinámico para agregar, visualizar y eliminar proyectos
-📁 Subida de Archivos: Funcionalidad drag & drop para documentos y código
-📧 Formulario de Contacto: Sistema de contacto con validación
-🎨 Animaciones Suaves: Efectos visuales profesionales y transiciones
-⚡ Carga Rápida: Código optimizado sin dependencias externas
-🔄 Efecto Typewriter: Animación de texto dinámico en el hero
-📱 Navegación Móvil: Menu hamburguesa para dispositivos móviles
+### 👨‍💻 Sobre Mí
 
-🛠️ Tecnologías Utilizadas
-Frontend
+Soy Mairon Salazar, Ingeniero en Sistemas con más de 3 años de experiencia en desarrollo de software. Actualmente me desempeño como Docente de Programación en el SENA y como desarrollador full stack de FEDI RISE, una plataforma clínica en producción.
 
-HTML5: Estructura semántica y accesible
-CSS3: Estilos modernos con Grid y Flexbox
-JavaScript ES6+: Funcionalidad interactiva nativa (sin frameworks)
+### 🚀 Características del Proyecto
 
-Características Técnicas
+Portafolio web construido con HTML, CSS y JavaScript puro (sin frameworks ni dependencias externas), con diseño oscuro, animado y totalmente responsive.
 
-CSS Custom Properties: Variables CSS para mantenimiento fácil
-CSS Grid & Flexbox: Layouts modernos y flexibles
-Intersection Observer API: Animaciones al hacer scroll
-File API: Manejo avanzado de archivos
-LocalStorage: Persistencia de datos en el navegador
-Mobile First: Diseño pensado primero para móviles
+### ✨ Funcionalidades Principales
 
-<img width="1919" height="999" alt="image" src="https://github.com/user-attachments/assets/4f38ef50-2590-473c-8496-00fc99c62010" />
+- 🎯 **Diseño Responsivo**: adaptado para móviles, tablets y desktop, con menú hamburguesa funcional en pantallas pequeñas.
+- 🏢 **Carrusel de Empresas**: desplazamiento automático (CSS) con las organizaciones donde he trabajado.
+- 💼 **Portafolio de Proyectos**: casos destacados (proyectos institucionales/privados) y repositorios públicos reales enlazados directamente a GitHub.
+- 🎨 **Animaciones Suaves**: transiciones y efectos visuales en tarjetas, botones y secciones.
+- 🔄 **Efecto Typewriter**: animación de texto dinámico en el hero con las tecnologías principales.
+- 📄 **CV Descargable**: botón de descarga directa del currículum en PDF.
+- ⚡ **Carga Rápida**: código optimizado sin dependencias externas.
 
+### 🛠️ Tecnologías Utilizadas
 
-<img width="1916" height="998" alt="image" src="https://github.com/user-attachments/assets/92830363-d447-427a-821a-00189168271d" />
+**Frontend del portafolio**
+- HTML5: estructura semántica
+- CSS3: Grid, Flexbox, animaciones y variables CSS
+- JavaScript ES6+: renderizado dinámico de proyectos y carrusel, sin frameworks
 
-<img width="1914" height="999" alt="image" src="https://github.com/user-attachments/assets/378aa976-bdcf-48f3-83da-d465a941ce89" />
+**Stack profesional que muestro en el sitio**
+- Python, TypeScript, Go, JavaScript, Java, PHP
+- Django, Flask, Node.js, React, Vue.js
+- PostgreSQL, MySQL, SQLite, MongoDB
+- Docker, AWS S3
 
+### 📝 Mantenimiento
 
-<img width="1916" height="996" alt="image" src="https://github.com/user-attachments/assets/096d2ae3-75dd-487b-a70c-1dfc95f9c358" />
+Los datos del carrusel de empresas y de los proyectos destacados están en `script.js` (arreglos `companies`, `featuredProjects` y `publicProjects`) — edítalos ahí directamente para agregar o actualizar información.
 
-
-
-
+Para que el botón "Descargar CV" funcione, coloca tu currículum en PDF en la raíz del proyecto con el nombre `cv-mairon-salazar.pdf`.

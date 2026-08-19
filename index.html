@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mairon Salazar - Ingeniero en Sistemas</title>
+    <title>Mairon Salazar - Ingeniero en Sistemas | Desarrollador Full Stack</title>
+    <meta name="description" content="Portafolio de Mairon Salazar, Ingeniero en Sistemas y Desarrollador Full Stack. Python, TypeScript, Go, React, Django. Instructor de programación en SENA. Proyectos reales, contacto directo.">
+    <meta property="og:title" content="Mairon Salazar - Ingeniero en Sistemas | Desarrollador Full Stack">
+    <meta property="og:description" content="Portafolio profesional: proyectos reales, tecnologías en demanda (Python, TypeScript, Go, React, Django) y experiencia como docente e ingeniero de software.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='46' font-family='Arial, sans-serif' font-weight='800' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">Mairon Salazar</div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#companies">Experiencia</a></li>
                 <li><a href="#projects">Proyectos</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -23,12 +34,13 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <p class="hero-eyebrow">👋 Disponible para nuevos proyectos</p>
                     <h1>Mairon Salazar</h1>
                     <h2 id="typewriter"></h2>
-                    <p>Ingeniero en Sistemas con más de 3 años de experiencia en desarrollo de software. Instructor de programación y sistemas en SENA Regional Valle, apasionado por la tecnología y la formación de nuevos talentos.</p>
+                    <p>Ingeniero en Sistemas con más de 3 años de experiencia en desarrollo de software. Instructor de programación en el SENA, desarrollador full stack de la plataforma clínica FEDI RISE, y formador de nuevos talentos tecnológicos.</p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                        <a href="#contact" class="btn btn-secondary">Contáctame</a>
+                        <a href="cv-mairon-salazar.pdf" class="btn btn-secondary" download>Descargar CV</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -46,21 +58,21 @@
                 <h2 class="section-title">Sobre Mí</h2>
                 <p class="section-subtitle">Conoce mi perfil profesional y habilidades</p>
             </div>
-            
+
             <div class="about-grid">
                 <div class="about-text">
                     <h3>¡Hola! Soy Mairon Salazar</h3>
-                    <p>Como Ingeniero en Sistemas, he dedicado más de 3 años al desarrollo de software, creando soluciones innovadoras y eficientes. Mi experiencia abarca desde el desarrollo frontend hasta la implementación de sistemas backend robustos.</p>
-                    <p>Actualmente trabajo como docente de programación y sistemas en el SENA Regional Valle, donde tengo el privilegio de formar a las nuevas generaciones de desarrolladores, compartiendo conocimientos prácticos y fomentando el amor por la programación.</p>
-                    
+                    <p>Como Ingeniero en Sistemas, he dedicado más de 3 años al desarrollo de software, creando soluciones innovadoras y eficientes. Mi experiencia abarca desde el desarrollo frontend hasta la implementación de sistemas backend robustos, incluyendo una plataforma clínica fullstack en producción.</p>
+                    <p>Actualmente trabajo como docente de programación y sistemas en el SENA, donde tengo el privilegio de formar a las nuevas generaciones de desarrolladores, compartiendo conocimientos prácticos y fomentando el amor por la programación.</p>
+
                     <div class="stats">
                         <div class="stat-card">
                             <span class="stat-number">3+</span>
                             <span class="stat-label">Años de Experiencia</span>
                         </div>
                         <div class="stat-card">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Proyectos Completados</span>
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Organizaciones Activas</span>
                         </div>
                         <div class="stat-card">
                             <span class="stat-number">100+</span>
@@ -68,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="skills-container">
                     <h3>Habilidades Técnicas</h3>
                     <div class="skill-category">
@@ -77,6 +89,7 @@
                             <span class="skill-tag">HTML5</span>
                             <span class="skill-tag">CSS3</span>
                             <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag skill-tag-new">TypeScript</span>
                             <span class="skill-tag">React</span>
                             <span class="skill-tag">Vue.js</span>
                         </div>
@@ -85,17 +98,23 @@
                         <h4>Backend</h4>
                         <div class="skill-tags">
                             <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag skill-tag-new">Go</span>
                             <span class="skill-tag">Node.js</span>
                             <span class="skill-tag">Java</span>
                             <span class="skill-tag">PHP</span>
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h4>Base de Datos</h4>
+                        <h4>Base de Datos &amp; Infraestructura</h4>
                         <div class="skill-tags">
-                            <span class="skill-tag">MySQL</span>
                             <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">SQLite</span>
                             <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS S3</span>
                         </div>
                     </div>
                 </div>
@@ -103,13 +122,31 @@
         </div>
     </section>
 
+    <section id="companies" class="companies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dónde He Trabajado</h2>
+                <p class="section-subtitle">Organizaciones que han confiado en mi trabajo</p>
+            </div>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- populated by script.js, duplicated for infinite scroll -->
+            </div>
+        </div>
+    </section>
+
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Mis Proyectos</h2>
-                <p class="section-subtitle">Algunos de mis trabajos más destacados</p>
+                <h2 class="section-title">Portafolio de Proyectos</h2>
+                <p class="section-subtitle">Casos reales y código abierto disponible en GitHub</p>
             </div>
-            
+
+            <h3 class="projects-subheading">Casos destacados</h3>
+            <div class="projects-grid featured-grid" id="featuredGrid"></div>
+
+            <h3 class="projects-subheading">Repositorios públicos en GitHub</h3>
             <div class="projects-grid" id="projectsGrid"></div>
         </div>
     </section>
@@ -120,7 +157,7 @@
                 <h2 class="section-title">Contacto</h2>
                 <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
             </div>
-            
+
             <div class="contact-grid">
                 <a href="mailto:maironsalazar16@gmail.com" class="contact-card">
                     <span class="contact-icon">📧</span>
@@ -147,7 +184,7 @@
             <div class="footer-content">
                 <div>
                     <h3>Mairon Salazar</h3>
-                    <p>Ingeniero en Sistemas | Docente SENA Regional Valle</p>
+                    <p>Ingeniero en Sistemas | Docente SENA</p>
                 </div>
                 <div class="footer-social">
                     <a href="mailto:maironsalazar16@gmail.com">📧</a>
@@ -157,12 +194,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Mairon Salazar. Todos los derechos reservados.</p>
+                <p>&copy; <span id="year"></span> Mairon Salazar. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/573104747696" class="whatsapp-float" target="_blank">💬</a>
+    <a href="https://wa.me/573104747696" class="whatsapp-float" target="_blank" aria-label="Escríbeme por WhatsApp">💬</a>
 
     <script src="script.js"></script>
 </body>
