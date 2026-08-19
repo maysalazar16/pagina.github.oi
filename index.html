@@ -8,13 +8,16 @@
     <meta property="og:title" content="Mairon Salazar - Ingeniero en Sistemas | Desarrollador Full Stack">
     <meta property="og:description" content="Portafolio profesional: proyectos reales, tecnologías en demanda (Python, TypeScript, Go, React, Django) y experiencia como docente e ingeniero de software.">
     <meta property="og:type" content="website">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='46' font-family='Arial, sans-serif' font-weight='800' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-size='46' font-family='Arial, sans-serif' font-weight='800' fill='white' text-anchor='middle'%3EMS%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">Mairon Salazar</div>
+            <div class="logo mono">mairon<span>.dev</span></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre Mí</a></li>
@@ -32,21 +35,59 @@
 
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-eyebrow">👋 Disponible para nuevos proyectos</p>
-                    <h1>Mairon Salazar</h1>
-                    <h2 id="typewriter"></h2>
-                    <p>Ingeniero en Sistemas con más de 3 años de experiencia en desarrollo de software. Instructor de programación en el SENA, desarrollador full stack de la plataforma clínica FEDI RISE, y formador de nuevos talentos tecnológicos.</p>
-                    <div class="hero-buttons">
+            <div class="bento-grid">
+                <div class="card c-main">
+                    <div class="eyebrow mono"><span class="dot-live"></span>disponible_para_proyectos: true</div>
+                    <h1>Mairon <span class="accent">Salazar</span></h1>
+                    <div class="role mono">Ingeniero en Sistemas · Full Stack<span class="cursor"></span></div>
+                    <p>Más de 3 años construyendo software. Desarrollador único de FEDI RISE, plataforma clínica en producción, e instructor de programación en el SENA.</p>
+                    <div class="btns">
                         <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                        <a href="cv-mairon-salazar.pdf" class="btn btn-secondary" download>Descargar CV</a>
+                        <a href="cv-mairon-salazar.pdf" class="btn btn-secondary mono" download>$ descargar --cv</a>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <div class="profile-circle">
-                        <span>MS</span>
+
+                <div class="card c-editor">
+                    <div class="editor-bar">
+                        <span class="dot" style="background:#ff5f56"></span>
+                        <span class="dot" style="background:#ffbd2e"></span>
+                        <span class="dot" style="background:#27c93f"></span>
+                        <span class="editor-tab mono">perfil.ts</span>
                     </div>
+                    <div class="code mono">
+                        <div class="ln">1</div><div><span class="kw">const</span> <span class="prop">mairon</span> = {</div>
+                        <div class="ln">2</div><div>&nbsp;rol: <span class="str">"Ing. Sistemas"</span>,</div>
+                        <div class="ln">3</div><div>&nbsp;stack: [<span class="str">"Python"</span>,</div>
+                        <div class="ln">4</div><div>&nbsp;&nbsp;<span class="str">"TypeScript"</span>, <span class="str">"Go"</span>,</div>
+                        <div class="ln">5</div><div>&nbsp;&nbsp;<span class="str">"React"</span>, <span class="str">"Django"</span>],</div>
+                        <div class="ln">6</div><div>&nbsp;construyendo:</div>
+                        <div class="ln">7</div><div>&nbsp;&nbsp;<span class="str">"FEDI RISE"</span>,</div>
+                        <div class="ln">8</div><div>&nbsp;docente: <span class="str">"SENA"</span>,</div>
+                        <div class="ln">9</div><div>&nbsp;<span class="fn">disponible</span>: <span class="kw">true</span></div>
+                        <div class="ln">10</div><div>};</div>
+                    </div>
+                </div>
+
+                <div class="card c-stat">
+                    <span class="num">3+</span>
+                    <span class="lbl">Años de experiencia</span>
+                </div>
+
+                <div class="card c-stack">
+                    <div class="lbl mono">Stack principal</div>
+                    <div class="chips">
+                        <span class="chip mono">Python</span>
+                        <span class="chip mono">TypeScript</span>
+                        <span class="chip mono">Go</span>
+                        <span class="chip mono">React</span>
+                        <span class="chip mono">Django</span>
+                    </div>
+                </div>
+
+                <div class="card c-building">
+                    <div class="lbl mono">Construyendo ahora</div>
+                    <div class="title">FEDI RISE</div>
+                    <div class="sub">Plataforma clínica · Fundación FEDI</div>
                 </div>
             </div>
         </div>
@@ -56,66 +97,55 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Sobre Mí</h2>
-                <p class="section-subtitle">Conoce mi perfil profesional y habilidades</p>
+                <p class="section-subtitle">Perfil profesional y habilidades técnicas</p>
             </div>
 
             <div class="about-grid">
-                <div class="about-text">
+                <div class="card about-bio">
                     <h3>¡Hola! Soy Mairon Salazar</h3>
                     <p>Como Ingeniero en Sistemas, he dedicado más de 3 años al desarrollo de software, creando soluciones innovadoras y eficientes. Mi experiencia abarca desde el desarrollo frontend hasta la implementación de sistemas backend robustos, incluyendo una plataforma clínica fullstack en producción.</p>
-                    <p>Actualmente trabajo como docente de programación y sistemas en el SENA, donde tengo el privilegio de formar a las nuevas generaciones de desarrolladores, compartiendo conocimientos prácticos y fomentando el amor por la programación.</p>
-
-                    <div class="stats">
-                        <div class="stat-card">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">Años de Experiencia</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">Organizaciones Activas</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Estudiantes Formados</span>
-                        </div>
+                    <p>Actualmente trabajo como docente de programación en el SENA, donde tengo el privilegio de formar a las nuevas generaciones de desarrolladores.</p>
+                    <div class="mini-stats">
+                        <div><span class="num">3+</span><span class="lbl">Años exp.</span></div>
+                        <div><span class="num">2</span><span class="lbl">Organizaciones</span></div>
+                        <div><span class="num">100+</span><span class="lbl">Estudiantes</span></div>
                     </div>
                 </div>
 
-                <div class="skills-container">
-                    <h3>Habilidades Técnicas</h3>
-                    <div class="skill-category">
-                        <h4>Frontend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag skill-tag-new">TypeScript</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Vue.js</span>
-                        </div>
+                <div class="card skill-card">
+                    <div class="lbl mono">Frontend</div>
+                    <div class="chips">
+                        <span class="chip mono">HTML5</span>
+                        <span class="chip mono">CSS3</span>
+                        <span class="chip mono">JavaScript</span>
+                        <span class="chip mono chip-new">TypeScript ✦</span>
+                        <span class="chip mono">React</span>
+                        <span class="chip mono">Vue.js</span>
                     </div>
-                    <div class="skill-category">
-                        <h4>Backend</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Django</span>
-                            <span class="skill-tag">Flask</span>
-                            <span class="skill-tag skill-tag-new">Go</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">PHP</span>
-                        </div>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="lbl mono">Backend</div>
+                    <div class="chips">
+                        <span class="chip mono">Python</span>
+                        <span class="chip mono">Django</span>
+                        <span class="chip mono">Flask</span>
+                        <span class="chip mono chip-new">Go ✦</span>
+                        <span class="chip mono">Node.js</span>
+                        <span class="chip mono">Java</span>
+                        <span class="chip mono">PHP</span>
                     </div>
-                    <div class="skill-category">
-                        <h4>Base de Datos &amp; Infraestructura</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">SQLite</span>
-                            <span class="skill-tag">MongoDB</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS S3</span>
-                        </div>
+                </div>
+
+                <div class="card skill-card">
+                    <div class="lbl mono">Base de Datos &amp; Infra</div>
+                    <div class="chips">
+                        <span class="chip mono">PostgreSQL</span>
+                        <span class="chip mono">MySQL</span>
+                        <span class="chip mono">SQLite</span>
+                        <span class="chip mono">MongoDB</span>
+                        <span class="chip mono">Docker</span>
+                        <span class="chip mono">AWS S3</span>
                     </div>
                 </div>
             </div>
@@ -130,9 +160,7 @@
             </div>
         </div>
         <div class="carousel-wrapper">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- populated by script.js, duplicated for infinite scroll -->
-            </div>
+            <div class="carousel-track" id="carouselTrack"></div>
         </div>
     </section>
 
@@ -183,7 +211,7 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <h3>Mairon Salazar</h3>
+                    <h3 class="mono">mairon.dev</h3>
                     <p>Ingeniero en Sistemas | Docente SENA</p>
                 </div>
                 <div class="footer-social">

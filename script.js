@@ -1,42 +1,3 @@
-// Typewriter Effect
-const phrases = [
-    'Ingeniero en Sistemas',
-    'Desarrollador Full Stack',
-    'Docente de Programación',
-    'Python · TypeScript · Go',
-    'Formador de Talentos'
-];
-
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeWriter() {
-    const current = phrases[phraseIndex];
-    const typewriterEl = document.getElementById('typewriter');
-
-    if (isDeleting) {
-        typewriterEl.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typewriterEl.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    let speed = isDeleting ? 50 : 150;
-
-    if (!isDeleting && charIndex === current.length) {
-        speed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % phrases.length;
-        speed = 500;
-    }
-
-    setTimeout(typeWriter, speed);
-}
-
 // Companies / organizations worked with
 // NOTE: edit this list directly to add/remove organizations for the carousel.
 const companies = [
@@ -226,7 +187,6 @@ function setFooterYear() {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
-    typeWriter();
     renderCompanies();
     renderFeatured();
     renderProjects();
