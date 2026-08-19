@@ -3,7 +3,10 @@
 const companies = [
     { name: 'S&T Soluciones Tecnológicas', role: 'Software Developer', logo: 'images/logos/st-soluciones.png', initials: 'S&T' },
     { name: 'SENA', role: 'Instructor de Programación', logo: 'images/logos/sena.png', initials: 'SENA' },
-    { name: 'Fundación FEDI', role: 'Desarrollador Full Stack — FEDI RISE', logo: 'images/logos/fundacion-fedi.png', initials: 'FEDI' }
+    { name: 'Fundación FEDI', role: 'Desarrollador Full Stack — FEDI RISE', logo: 'images/logos/fundacion-fedi.png', initials: 'FEDI' },
+    { name: 'Unisantamaría', role: 'Docente de Ingeniería de Sistemas y Programación de Software', logo: 'images/logos/unisantamaria.png', initials: 'USM' },
+    { name: 'Solutec S.A.S.', role: 'Técnico de Soporte', logo: 'images/logos/solutec.png', initials: 'ST' },
+    { name: 'OM Data (Mi Oficina.co S.A.S.)', role: 'Ingeniero de Soporte', logo: 'images/logos/omdata.png', initials: 'OM' }
 ];
 
 function renderCompanies() {

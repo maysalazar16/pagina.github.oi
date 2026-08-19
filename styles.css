@@ -627,7 +627,7 @@ section {
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: scroll-carousel 22s linear infinite;
+    animation: scroll-carousel 40s linear infinite;
 }
 
 .carousel-wrapper:hover .carousel-track {
