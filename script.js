@@ -192,6 +192,48 @@ function setFooterYear() {
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
+// WhatsApp floating button: cycles short dev-flavored phrases in a speech
+// bubble to invite visitors to click and start a chat.
+// NOTE: edit this list directly to change the phrases shown.
+const waPhrases = [
+    '¿Buscas un desarrollador full stack? 👨‍💻',
+    '¡Hablemos de tu próximo proyecto! 🚀',
+    'Python · TypeScript · Go — ¿construimos algo?',
+    'Disponible para nuevos retos ✅',
+    'Escríbeme, respondo rápido 💬',
+    '¿Necesitas una plataforma a la medida? 🛠️'
+];
+
+function initWhatsappTeaser() {
+    const bubble = document.getElementById('waBubble');
+    const button = document.getElementById('waButton');
+    if (!bubble || !button) return;
+
+    let index = 0;
+    let hideTimeout = null;
+
+    function cycle() {
+        bubble.textContent = waPhrases[index % waPhrases.length];
+        index++;
+
+        bubble.classList.add('show');
+        button.classList.add('wa-nudge');
+        setTimeout(() => button.classList.remove('wa-nudge'), 650);
+
+        clearTimeout(hideTimeout);
+        hideTimeout = setTimeout(() => bubble.classList.remove('show'), 4200);
+    }
+
+    // first appearance shortly after the page loads, then repeat on an interval
+    setTimeout(cycle, 1800);
+    setInterval(cycle, 7000);
+
+    // showing a phrase early if the visitor hovers the button
+    button.addEventListener('mouseenter', () => {
+        if (!bubble.classList.contains('show')) cycle();
+    });
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     renderCompanies();
@@ -200,4 +242,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initMobileNav();
     initSmoothScroll();
     setFooterYear();
+    initWhatsappTeaser();
 });
