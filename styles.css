@@ -189,7 +189,7 @@ nav {
 }
 
 .c-main {
-    grid-column: span 2;
+    grid-column: span 3;
     grid-row: span 4;
     background: linear-gradient(160deg, var(--bg-card-alt), #0e1220);
     padding: 2.2rem;
@@ -236,7 +236,7 @@ nav {
 
 .c-main .role {
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     margin-bottom: 1.2rem;
 }
 
@@ -304,7 +304,7 @@ nav {
 
 /* Editor card */
 .c-editor {
-    grid-column: span 4;
+    grid-column: span 3;
     grid-row: span 4;
     background: var(--bg-editor);
     overflow: hidden;
@@ -843,32 +843,82 @@ section {
     border-radius: 20px;
     text-align: center;
     border: 1px solid var(--border);
-    transition: all 0.4s;
+    transition: all 0.35s;
     text-decoration: none;
     color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent-color, var(--cyan));
+    transform: scaleX(0);
+    transition: transform 0.35s;
+}
+
+.contact-card:hover::before {
+    transform: scaleX(1);
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--cyan);
-    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.2);
+    transform: translateY(-8px);
+    border-color: var(--accent-color, var(--cyan));
+    box-shadow: 0 20px 40px -10px var(--accent-shadow, rgba(56, 189, 248, 0.3));
 }
 
 .contact-icon {
-    font-size: 3rem;
-    margin-bottom: 0.8rem;
-    display: block;
-    transition: transform 0.4s;
+    width: 56px;
+    height: 56px;
+    margin-bottom: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: var(--accent-bg, rgba(56, 189, 248, 0.1));
+    color: var(--accent-color, var(--cyan));
+    transition: transform 0.35s;
+}
+
+.contact-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.contact-icon-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .contact-card:hover .contact-icon {
-    transform: scale(1.15) rotate(8deg);
+    transform: scale(1.1) rotate(-6deg);
 }
 
-.contact-card span:last-child {
+.contact-label {
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
 }
+
+.contact-value {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    word-break: break-word;
+}
+
+.contact-email { --accent-color: #38bdf8; --accent-bg: rgba(56, 189, 248, 0.1); --accent-shadow: rgba(56, 189, 248, 0.3); }
+.contact-linkedin { --accent-color: #0a66c2; --accent-bg: rgba(10, 102, 194, 0.12); --accent-shadow: rgba(10, 102, 194, 0.3); }
+.contact-github { --accent-color: #f8fafc; --accent-bg: rgba(248, 250, 252, 0.1); --accent-shadow: rgba(248, 250, 252, 0.18); }
+.contact-whatsapp { --accent-color: #25d366; --accent-bg: rgba(37, 211, 102, 0.12); --accent-shadow: rgba(37, 211, 102, 0.3); }
 
 /* Footer */
 footer {
