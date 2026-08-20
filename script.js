@@ -221,12 +221,12 @@ function initWhatsappTeaser() {
         setTimeout(() => button.classList.remove('wa-nudge'), 650);
 
         clearTimeout(hideTimeout);
-        hideTimeout = setTimeout(() => bubble.classList.remove('show'), 4200);
+        hideTimeout = setTimeout(() => bubble.classList.remove('show'), 4800);
     }
 
-    // first appearance shortly after the page loads, then repeat on an interval
-    setTimeout(cycle, 1800);
-    setInterval(cycle, 7000);
+    // first appearance shortly after the page loads, then repeat on a slower interval
+    setTimeout(cycle, 2500);
+    setInterval(cycle, 12000);
 
     // showing a phrase early if the visitor hovers the button
     button.addEventListener('mouseenter', () => {

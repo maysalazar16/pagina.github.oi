@@ -1003,6 +1003,7 @@ footer {
     right: 24px;
     z-index: 999;
     display: flex;
+    flex-direction: column;
     align-items: flex-end;
 }
 
@@ -1051,20 +1052,19 @@ footer {
 
 .wa-bubble {
     position: relative;
-    margin-right: 14px;
-    margin-bottom: 10px;
-    max-width: min(240px, calc(100vw - 130px));
+    margin-bottom: 12px;
+    max-width: min(190px, calc(100vw - 70px));
     background: var(--bg-card);
     border: 1px solid var(--border-strong);
     color: var(--text-primary);
-    padding: 0.75rem 1rem;
-    border-radius: 14px 14px 4px 14px;
-    font-size: 0.82rem;
-    line-height: 1.4;
+    padding: 0.55rem 0.8rem;
+    border-radius: 12px 12px 4px 12px;
+    font-size: 0.72rem;
+    line-height: 1.35;
     text-decoration: none;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     opacity: 0;
-    transform: translateY(6px) scale(0.94);
+    transform: translateY(8px) scale(0.94);
     transform-origin: bottom right;
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
@@ -1083,10 +1083,10 @@ footer {
 .wa-bubble::after {
     content: '';
     position: absolute;
-    right: 10px;
-    bottom: -7px;
-    width: 12px;
-    height: 12px;
+    right: 18px;
+    bottom: -6px;
+    width: 10px;
+    height: 10px;
     background: var(--bg-card);
     border-right: 1px solid var(--border-strong);
     border-bottom: 1px solid var(--border-strong);
@@ -1161,11 +1161,10 @@ footer {
     }
 
     .wa-bubble {
-        max-width: min(190px, calc(100vw - 90px));
-        font-size: 0.76rem;
-        padding: 0.6rem 0.85rem;
-        margin-right: 10px;
-        margin-bottom: 6px;
+        max-width: min(160px, calc(100vw - 60px));
+        font-size: 0.68rem;
+        padding: 0.5rem 0.7rem;
+        margin-bottom: 8px;
     }
 
     .footer-social {
